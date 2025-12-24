@@ -43,7 +43,7 @@ export default function Footer() {
 
             {/* Company Section */}
             <div>
-              <h4 className="text-white font-semibold mb-4 text-lg">Company</h4>
+              <h4 className="text-white font-semibold mb-4 text-lg">Quick Links</h4>
               <ul className="space-y-3">
                 
                 <li>
@@ -52,7 +52,7 @@ export default function Footer() {
                   </Link>
                 </li>
                  <li>
-                  <Link href="/#features" className="text-gray-400 hover:text-primary transition">
+                  <Link href="/#about" className="text-gray-400 hover:text-primary transition">
                     About
                   </Link>
                 </li>

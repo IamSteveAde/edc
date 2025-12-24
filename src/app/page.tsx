@@ -2,6 +2,8 @@ import React from 'react';
 import { Metadata } from "next";
 import Hero from './components/home/hero';
 import Calculator from './components/home/calculator';
+import About from './components/home/about';
+
 import History from './components/home/history';
 import Features from './components/shared/features';
 import CompanyInfo from './components/home/info';
@@ -77,6 +79,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <About />
+      
       <DiscoverProperties />
       <Listing />
       <Calculator />
