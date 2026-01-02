@@ -110,7 +110,7 @@ export default function Header() {
         <div className="fixed inset-0 z-40 bg-black/90 backdrop-blur-2xl">
           <nav className="h-full flex flex-col items-center justify-center">
             <MobileNavItem delay={0} href="#about" onClick={() => setMenuOpen(false)}>
-              About
+              About Optivance
             </MobileNavItem>
 
             <Divider />
