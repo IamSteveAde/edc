@@ -5,10 +5,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import AppointmentModal from "../../modals/AppointmentModal";
 
-
 type Slide = {
   title: string;
-  subtitle: string;
   body: string;
   image: string;
 };
@@ -16,21 +14,18 @@ type Slide = {
 const slides: Slide[] = [
   {
     title: "World-Class Dental Care",
-    subtitle: "European Standards. Trusted Nigerian Expertise.",
     body:
       "Premium dental healthcare delivered with precision, compassion, and advanced technology.",
     image: "/images/hero/edc1.png",
   },
   {
     title: "Your Smile, Our Priority",
-    subtitle: "Modern Dentistry, Human Touch",
     body:
       "From routine care to advanced procedures, we focus on comfort, safety, and lasting results.",
     image: "/images/hero/edc2.png",
   },
   {
     title: "A Subsidiary of Equity Health Group",
-    subtitle: "Built on Excellence & Innovation",
     body:
       "Part of a trusted healthcare network committed to redefining medical standards in Nigeria.",
     image: "/images/hero/edc3.png",
@@ -41,11 +36,8 @@ export default function Hero() {
   const [active, setActive] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
 
-
   // Auto-slide
   useEffect(() => {
-    if (!slides.length) return;
-
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % slides.length);
     }, 7000);
@@ -53,9 +45,7 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!slides.length) return null;
-
-  const currentSlide = slides[active] ?? slides[0];
+  const currentSlide = slides[active];
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black">
@@ -64,9 +54,7 @@ export default function Hero() {
         <motion.div
           key={active}
           className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${currentSlide.image})`,
-          }}
+          style={{ backgroundImage: `url(${currentSlide.image})` }}
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 1.02 }}
@@ -98,23 +86,18 @@ export default function Hero() {
                 {currentSlide.title}
               </h1>
 
-              <p className="mt-6 text-white/90 text-lg">
-                {currentSlide.subtitle}
-              </p>
-
-              <p className="mt-6 text-white/70 max-w-xl mx-auto">
+              <p className="mt-8 text-white/75 max-w-xl mx-auto text-lg">
                 {currentSlide.body}
               </p>
 
               {/* CTA */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-  onClick={() => setModalOpen(true)}
-  className="px-8 py-4 bg-[#0071bc] text-white text-sm tracking-wide uppercase hover:bg-[#005fa0] transition"
->
-  Book Appointment
-</button>
-
+                  onClick={() => setModalOpen(true)}
+                  className="px-8 py-4 bg-[#0071bc] text-white text-sm tracking-wide uppercase hover:bg-[#005fa0] transition"
+                >
+                  Book Appointment
+                </button>
 
                 <Link
                   href="/#services"
@@ -143,11 +126,12 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <AppointmentModal
-  open={modalOpen}
-  onClose={() => setModalOpen(false)}
-/>
 
+      {/* APPOINTMENT MODAL */}
+      <AppointmentModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </section>
   );
 }

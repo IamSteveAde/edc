@@ -66,19 +66,20 @@ export default function InsuranceCorporateSection() {
 
         {/* CTA */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 p-10 bg-white/5 backdrop-blur border border-white/10">
-          <p className="text-white/80 text-lg max-w-xl">
-            Contact us to discuss tailored dental care partnerships designed
-            around your organization, community, or family.
-          </p>
+  <p className="text-white/80 text-lg max-w-xl">
+    Contact us to discuss tailored dental care partnerships designed
+    around your organization, community, or family.
+  </p>
 
-          <a
-            href="/contact"
-            className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-white hover:text-[#6fd6a8] transition"
-          >
-            Start a Conversation
-            <ArrowRight size={16} />
-          </a>
-        </div>
+  <a
+    href="mailto:appointments@europe-dental-clinic.com?subject=Dental%20Care%20Partnership%20Enquiry"
+    className="inline-flex items-center gap-3 text-sm uppercase tracking-wide text-white hover:text-[#6fd6a8] transition"
+  >
+    Start a Conversation
+    <ArrowRight size={16} />
+  </a>
+</div>
+
       </div>
     </section>
   );
