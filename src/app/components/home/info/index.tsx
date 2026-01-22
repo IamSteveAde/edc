@@ -62,7 +62,7 @@ export default function AppointmentSection() {
                 <InfoRow
                   icon={<Mail />}
                   label="Email"
-                  value="To be added"
+                  value="appointments@europe-dental-clinic.com"
                 />
 
                 <InfoRow

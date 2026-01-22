@@ -114,7 +114,7 @@ export default function Footer() {
 
                 <div className="flex items-start gap-3">
                   <Mail size={16} className="mt-1 text-[#6fd6a8]" />
-                  <span>Email (To be added)</span>
+                  <span>appointments@europe-dental-clinic.com</span>
                 </div>
               </div>
 
