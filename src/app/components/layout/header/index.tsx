@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import AppointmentModal from "../../modals/AppointmentModal";
 
 /* -------------------------------------
    EUROPE DENTAL CLINIC BRAND COLORS
@@ -17,6 +18,7 @@ const BRAND = {
 export default function Header() {
   const [onDark, setOnDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [appointmentOpen, setAppointmentOpen] = useState(false);
 
   /* --------------------------------------------------
      Detect dark sections
@@ -46,6 +48,13 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
+
+  /* --------------------------------------------------
+     Close menu when appointment modal opens
+  -------------------------------------------------- */
+  useEffect(() => {
+    if (appointmentOpen) setMenuOpen(false);
+  }, [appointmentOpen]);
 
   return (
     <>
@@ -77,19 +86,15 @@ export default function Header() {
               <NavItem onDark={onDark} href="#about">
                 About
               </NavItem>
-
               <NavItem onDark={onDark} href="#services">
                 Services
               </NavItem>
-
               <NavItem onDark={onDark} href="#team">
                 Our Team
               </NavItem>
-
               <NavItem onDark={onDark} href="#insurance">
                 Insurance & Corporate
               </NavItem>
-
               <NavItem onDark={onDark} href="#contact">
                 Contact
               </NavItem>
@@ -97,9 +102,9 @@ export default function Header() {
 
             {/* CTA + MOBILE TOGGLE */}
             <div className="flex items-center gap-4">
-              {/* CTA */}
-              <Link
-                href="#appointment"
+              {/* BOOK APPOINTMENT CTA */}
+              <button
+                onClick={() => setAppointmentOpen(true)}
                 className={`
                   hidden md:inline-flex
                   items-center
@@ -116,7 +121,7 @@ export default function Header() {
                 `}
               >
                 Book Appointment
-              </Link>
+              </button>
 
               {/* MOBILE TOGGLE */}
               <button
@@ -172,15 +177,29 @@ export default function Header() {
 
             <Divider />
 
-            <MobileNavItem
-              href="#appointment"
-              onClick={() => setMenuOpen(false)}
+            {/* MOBILE BOOK APPOINTMENT */}
+            <button
+              onClick={() => setAppointmentOpen(true)}
+              className="
+                text-white
+                text-sm
+                tracking-[0.35em]
+                uppercase
+                py-5
+                transition hover:text-[#6fd6a8]
+              "
             >
               Book Appointment
-            </MobileNavItem>
+            </button>
           </nav>
         </div>
       )}
+
+      {/* ================= APPOINTMENT MODAL ================= */}
+      <AppointmentModal
+        open={appointmentOpen}
+        onClose={() => setAppointmentOpen(false)}
+      />
     </>
   );
 }

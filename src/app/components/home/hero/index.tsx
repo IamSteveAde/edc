@@ -3,6 +3,8 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import AppointmentModal from "../../modals/AppointmentModal";
+
 
 type Slide = {
   title: string;
@@ -37,6 +39,8 @@ const slides: Slide[] = [
 
 export default function Hero() {
   const [active, setActive] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+
 
   // Auto-slide
   useEffect(() => {
@@ -104,12 +108,13 @@ export default function Hero() {
 
               {/* CTA */}
               <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  href="/appointment"
-                  className="px-8 py-4 bg-[#0071bc] text-white text-sm tracking-wide uppercase hover:bg-[#005fa0] transition"
-                >
-                  Book Appointment
-                </Link>
+                <button
+  onClick={() => setModalOpen(true)}
+  className="px-8 py-4 bg-[#0071bc] text-white text-sm tracking-wide uppercase hover:bg-[#005fa0] transition"
+>
+  Book Appointment
+</button>
+
 
                 <Link
                   href="/#services"
@@ -138,6 +143,11 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      <AppointmentModal
+  open={modalOpen}
+  onClose={() => setModalOpen(false)}
+/>
+
     </section>
   );
 }
