@@ -16,7 +16,7 @@ const slides: Slide[] = [
     title: "World-Class Dental Care",
     body:
       "Premium dental healthcare delivered with precision, compassion, and advanced technology.",
-    image: "/images/hero/edc1.png",
+    image: "/images/hero/edc3.png",
   },
   {
     title: "Your Smile, Our Priority",
