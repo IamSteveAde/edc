@@ -1,123 +1,213 @@
 "use client";
 
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
-  ShieldCheck,
-  Rocket,
-  Wallet,
+  Leaf,
   Users,
-  TrendingUp,
-  BadgeCheck,
-  Briefcase,
-  GraduationCap,
-  HeartHandshake,
+  ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
-export default function ForEmployersAndWorkers() {
+const ESG_ITEMS = [
+  {
+    title: "Environmental",
+    icon: Leaf,
+    image: "/images/hero/4.jpeg",
+    accent: "#02a7e8",
+    points: [
+      "Energy-efficient hospital and laboratory infrastructure",
+      "Responsible pharmaceutical waste management",
+      "Sustainable cold-chain and logistics systems",
+    ],
+  },
+  {
+    title: "Social",
+    icon: Users,
+    image: "/images/hero/3.jpeg",
+    accent: "#03a8e4",
+    points: [
+      "Expanded access to affordable, high-quality healthcare",
+      "Preventive care and immunization programs",
+      "Local workforce development and clinical training",
+      "Community health outreach and education initiatives",
+    ],
+  },
+  {
+    title: "Governance",
+    icon: ShieldCheck,
+    image: "/images/hero/2.jpeg",
+    accent: "#ffffff",
+    points: [
+      "Robust corporate governance and compliance frameworks",
+      "International healthcare quality and safety standards",
+      "Transparent reporting and ethical business practices",
+    ],
+  },
+  {
+    title: "Integrated ESG Impact",
+    icon: ShieldCheck,
+    image: "/images/hero/1.jpeg",
+    accent: "#02a7e8",
+    points: [
+      "ESG embedded across all healthcare platforms",
+      "Aligned with national and global health priorities",
+      "Long-term system resilience and trust",
+    ],
+  },
+];
+
+export default function ESGSection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (dir: "left" | "right") => {
+    if (!scrollRef.current) return;
+    scrollRef.current.scrollBy({
+      left: dir === "left" ? -420 : 420,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <section className="relative bg-white overflow-hidden" id="hire">
-      {/* ORBIT BACKGROUND */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/5" />
-        <div className="absolute top-1/2 left-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/5" />
-        <div className="absolute top-1/2 left-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-black/5" />
-      </div>
+    <section className="relative py-24 lg:py-32 overflow-hidden" id="esg">
+      {/* DEEP GRADIENT BACKGROUND */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#05273a] via-[#031c29] to-black" />
 
-      <div className="relative z-10 py-32">
-        <div className="container mx-auto px-6 lg:max-w-screen-xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-            {/* ================= EMPLOYERS ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl border border-black/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.06)]"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-[#5f3b86] mb-4">
-                For Employers
+      {/* SUBTLE ATMOSPHERE */}
+      <div className="absolute -top-40 -left-40 h-[600px] w-[600px] rounded-full bg-[#02a7e8]/10 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-[500px] w-[500px] rounded-full bg-[#03a8e4]/10 blur-3xl" />
+
+      <div className="relative container mx-auto px-6 lg:max-w-screen-xl">
+        {/* HEADER */}
+        <div className="flex items-center justify-between mb-12">
+          <div className="max-w-2xl">
+            <p className="text-[#02a7e8] tracking-[0.35em] uppercase text-xs mb-4">
+              ESG & Sustainability
+            </p>
+            <h2 className="text-white text-4xl md:text-5xl font-light leading-tight">
+              Responsible Healthcare.
+              <br />
+              <span className="text-white/80">
+                Built for Long-Term Impact.
               </span>
-
-              <h3 className="text-3xl font-light text-black">
-                Hire Better. Faster. Safer.
-              </h3>
-
-              <p className="mt-4 text-black/70 leading-relaxed max-w-md">
-                Optivance removes the stress and risk of blue-collar hiring —
-                giving you a dependable, scalable workforce you can trust.
-              </p>
-
-              <ul className="mt-8 space-y-4">
-                <Item icon={<ShieldCheck />} text="Pre-screened, verified workers" />
-                <Item icon={<BadgeCheck />} text="Role-specific training and certification" />
-                <Item icon={<Rocket />} text="Faster deployment and replacements" />
-                <Item icon={<Wallet />} text="Payroll, tax, and compliance handled" />
-                <Item icon={<Users />} text="Reduced theft, absenteeism, and turnover" />
-                <Item icon={<TrendingUp />} text="Scalable workforce on demand" />
-              </ul>
-
-              <p className="mt-8 text-black/60 italic max-w-md">
-                We act as your trusted workforce partner — not just a recruiter.
-              </p>
-            </motion.div>
-
-            {/* ================= WORKERS ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl border border-black/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.06)]"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-[#61abbb] mb-4">
-                For Workers
-              </span>
-
-              <h3 className="text-3xl font-light text-black">
-                More Than a Job. A Career Path.
-              </h3>
-
-              <p className="mt-4 text-black/70 leading-relaxed max-w-md">
-                Optivance helps workers move from informal jobs to structured,
-                protected employment with dignity and growth.
-              </p>
-
-              <ul className="mt-8 space-y-4">
-                <Item icon={<Briefcase />} text="Job matching based on skills" />
-                <Item icon={<GraduationCap />} text="Free or subsidized training" />
-                <Item icon={<BadgeCheck />} text="Digital certifications employers trust" />
-                <Item icon={<Wallet />} text="Stable income and payroll transparency" />
-                <Item icon={<ShieldCheck />} text="Tax and insurance coverage" />
-                <Item icon={<TrendingUp />} text="Opportunities to grow and earn more" />
-              </ul>
-
-              <p className="mt-8 text-black/60 italic max-w-md">
-                All through WhatsApp, in simple, familiar language.
-              </p>
-            </motion.div>
+            </h2>
           </div>
+
+          {/* ARROWS */}
+          <div className="hidden md:flex items-center gap-3">
+            <ArrowButton onClick={() => scroll("left")}>
+              <ChevronLeft size={18} />
+            </ArrowButton>
+            <ArrowButton onClick={() => scroll("right")}>
+              <ChevronRight size={18} />
+            </ArrowButton>
+          </div>
+        </div>
+
+        {/* HORIZONTAL SCROLL */}
+        <div
+          ref={scrollRef}
+          className="
+            flex gap-8 overflow-x-auto scroll-smooth
+            snap-x snap-mandatory
+            pb-4
+            [-ms-overflow-style:none]
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+          "
+        >
+          {ESG_ITEMS.map((item, i) => (
+            <ESGCard key={i} {...item} />
+          ))}
+        </div>
+
+        {/* MOBILE ARROWS */}
+        <div className="mt-10 flex md:hidden justify-center gap-6">
+          <ArrowButton onClick={() => scroll("left")}>
+            <ChevronLeft size={18} />
+          </ArrowButton>
+          <ArrowButton onClick={() => scroll("right")}>
+            <ChevronRight size={18} />
+          </ArrowButton>
         </div>
       </div>
     </section>
   );
 }
 
-/* -------------------------------------
-   LIST ITEM
-------------------------------------- */
-function Item({
-  icon,
-  text,
+/* ======================================================
+   ESG CARD
+====================================================== */
+function ESGCard({
+  title,
+  icon: Icon,
+  image,
+  points,
+  accent,
+}: any) {
+  return (
+    <motion.div
+      whileHover={{ y: -6 }}
+      transition={{ duration: 0.3 }}
+      className="
+        snap-start
+        min-w-[85%] sm:min-w-[420px] lg:min-w-[360px]
+        bg-white/5 backdrop-blur-xl
+        border border-white/10
+        rounded-3xl overflow-hidden
+      "
+    >
+      {/* IMAGE */}
+      <div className="relative h-52">
+        <Image src={image} alt={title} fill className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+      </div>
+
+      {/* CONTENT */}
+      <div className="p-8">
+        <div className="flex items-center gap-4 mb-6">
+          <Icon size={26} style={{ color: accent }} />
+          <h3 className="text-white text-xl font-medium">
+            {title}
+          </h3>
+        </div>
+
+        <ul className="space-y-3 text-white/70 leading-relaxed">
+          {points.map((p: string, i: number) => (
+            <li key={i}>• {p}</li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ======================================================
+   ARROW BUTTON
+====================================================== */
+function ArrowButton({
+  children,
+  onClick,
 }: {
-  icon: React.ReactNode;
-  text: string;
+  children: React.ReactNode;
+  onClick: () => void;
 }) {
   return (
-    <li className="flex items-start gap-4">
-      <div className="h-10 w-10 rounded-xl bg-black/5 text-black flex items-center justify-center">
-        {icon}
-      </div>
-      <span className="text-black/80 text-sm leading-relaxed">{text}</span>
-    </li>
+    <button
+      onClick={onClick}
+      className="
+        h-11 w-11 rounded-full
+        border border-white/20
+        text-white/80
+        flex items-center justify-center
+        hover:border-[#02a7e8]
+        hover:text-[#02a7e8]
+        transition
+      "
+    >
+      {children}
+    </button>
   );
 }

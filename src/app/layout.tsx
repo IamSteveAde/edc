@@ -23,11 +23,11 @@ const dmsans = DM_Sans({ subsets: ["latin"] });
 ------------------------------------- */
 export const metadata: Metadata = {
   title: {
-    default: "Digital Inclusion Initiative",
-    template: "%s | Digital Inclusion Initiative",
+    default: "Europe Dental Clinic",
+    template: "%s | Europe Dental Clinic",
   },
   description:
-    "Digital Inclusion Initiative works to expand digital access, build skills, and create opportunities for women and underserved communities through technology.",
+    "Europe Dental Clinic is a premium dental clinic in Nigeria delivering world-class oral healthcare using European standards, advanced technology, and compassionate specialists. A subsidiary of Equity Health Group Nigeria.",
 };
 
 /* -------------------------------------

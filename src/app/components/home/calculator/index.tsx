@@ -1,86 +1,66 @@
-"use client";
+import { Building2, Network, Sparkles } from "lucide-react";
 
-import { motion } from "framer-motion";
-import {
-  Hotel,
-  Utensils,
-  HardHat,
-  Factory,
-  ShoppingCart,
-  Truck,
-  Globe2,
-} from "lucide-react";
-
-export default function IndustriesAndVision() {
+export default function EquityHealthGroupSection() {
   return (
-    <section className="relative bg-white overflow-hidden" id="industries">
-      <div className="relative z-10 py-32">
-        <div className="container mx-auto px-6 lg:max-w-screen-xl">
-          <div className="grid lg:grid-cols-12 gap-20 items-start">
-            {/* ================= INDUSTRIES ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-[#5f3b86] mb-6">
-                Industries We Serve
+    <section className="relative py-32 overflow-hidden bg-gradient-to-br from-[#f8fafc] via-white to-[#f1f5f9]">
+      {/* SUBTLE STRUCTURAL BACKGROUND */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-[#0071bc]/8 blur-3xl" />
+        <div className="absolute bottom-0 -left-40 w-[420px] h-[420px] rounded-full bg-[#01943e]/8 blur-3xl" />
+      </div>
+
+      <div className="relative container mx-auto px-6 lg:max-w-screen-xl">
+        <div className="grid gap-16 lg:grid-cols-2 items-center">
+          {/* LEFT — CONTENT */}
+          <div className="max-w-xl">
+            <p className="uppercase tracking-[0.35em] text-xs text-[#01943e] mb-6">
+              Equity Health Group Nigeria
+            </p>
+
+            <h2 className="text-4xl md:text-5xl font-light leading-tight bg-gradient-to-r from-[#0071bc] to-[#01943e] bg-clip-text text-transparent">
+              Part of a
+              <br />
+              National Healthcare Vision
+            </h2>
+
+            <p className="mt-10 text-black/70 text-lg leading-relaxed">
+              Europe Dental Clinic is part of{" "}
+              <span className="font-medium text-black">
+                Equity Health Group Nigeria
               </span>
+              , a leading healthcare platform committed to building world-class
+              hospitals, clinics, and specialist care centers across Nigeria.
+            </p>
 
-              <h2 className="text-4xl font-light leading-tight text-black mb-10">
-                Supporting Africa’s
-                <span className="block font-normal text-[#5f3b86]">
-                  essential industries
-                </span>
-              </h2>
+            <p className="mt-6 text-black/70 text-lg leading-relaxed">
+              Together, we are redefining healthcare delivery through innovation,
+              uncompromising quality, and measurable impact on lives and
+              communities.
+            </p>
+          </div>
 
-              <div className="grid sm:grid-cols-2 gap-6">
-                <Industry icon={<Hotel />} label="Hospitality & Tourism" />
-                <Industry icon={<Utensils />} label="Food & Beverage" />
-                <Industry icon={<HardHat />} label="Construction & Real Estate" />
-                <Industry icon={<Factory />} label="Manufacturing" />
-                <Industry icon={<ShoppingCart />} label="Retail & Supermarkets" />
-                <Industry icon={<Truck />} label="Logistics & Warehousing" />
-              </div>
-            </motion.div>
+          {/* RIGHT — PILLARS */}
+          <div className="grid gap-8 sm:grid-cols-2">
+            <Pillar
+              icon={<Building2 />}
+              title="World-Class Facilities"
+              desc="Purpose-built hospitals and clinics designed to international standards."
+              color="text-[#0071bc]"
+            />
 
-            {/* ================= VISION ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-6"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-black/50 mb-6">
-                Our Vision
-              </span>
+            <Pillar
+              icon={<Network />}
+              title="Integrated Healthcare Platform"
+              desc="Specialist care centers connected through strong governance and systems."
+              color="text-[#01943e]"
+            />
 
-              <div className="rounded-3xl border border-black/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.06)]">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-11 w-11 rounded-xl bg-[#5f3b86]/10 text-[#5f3b86] flex items-center justify-center">
-                    <Globe2 />
-                  </div>
-                  <h3 className="text-2xl font-light text-black">
-                    Building Africa’s workforce infrastructure
-                  </h3>
-                </div>
-
-                <p className="text-black/70 leading-relaxed text-lg mb-6">
-                  To become Africa’s most trusted blue-collar workforce
-                  platform, connecting millions of workers to dignified jobs
-                  while helping businesses grow with confidence.
-                </p>
-
-                <p className="text-black/60 leading-relaxed">
-                  Optivance HR Africa is building the long-term infrastructure
-                  for Africa’s workforce economy — responsibly, inclusively,
-                  and at scale.
-                </p>
-              </div>
-            </motion.div>
+            <Pillar
+              icon={<Sparkles />}
+              title="Innovation & Impact"
+              desc="Technology-driven healthcare solutions focused on long-term outcomes."
+              color="text-black"
+            />
           </div>
         </div>
       </div>
@@ -88,22 +68,29 @@ export default function IndustriesAndVision() {
   );
 }
 
-/* -------------------------------------
-   INDUSTRY ITEM
-------------------------------------- */
-function Industry({
+/* PILLAR CARD */
+function Pillar({
   icon,
-  label,
+  title,
+  desc,
+  color,
 }: {
   icon: React.ReactNode;
-  label: string;
+  title: string;
+  desc: string;
+  color: string;
 }) {
   return (
-    <div className="flex items-center gap-4">
-      <div className="h-10 w-10 rounded-xl bg-black/5 text-black flex items-center justify-center">
-        {icon}
-      </div>
-      <span className="text-black/80 text-sm">{label}</span>
+    <div className="p-8 border border-black/10 bg-white hover:border-[#0071bc]/30 transition">
+      <div className={`mb-6 ${color}`}>{icon}</div>
+
+      <h3 className="text-lg font-medium text-black mb-3">
+        {title}
+      </h3>
+
+      <p className="text-black/70 leading-relaxed text-sm">
+        {desc}
+      </p>
     </div>
   );
 }

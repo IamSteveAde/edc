@@ -1,116 +1,113 @@
-"use client";
+import {
+  CalendarCheck,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+} from "lucide-react";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Users, Smartphone } from "lucide-react";
-
-export default function GetStarted() {
+export default function AppointmentSection() {
   return (
-    <section className="relative overflow-hidden" id="contact">
-      {/* GRADIENT BACKGROUND */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #2a123f 0%, #5f3b86 45%, #7b4db3 100%)",
-        }}
-      />
+    <section className="relative py-36 overflow-hidden bg-gradient-to-br from-[#021b2d] via-[#04283f] to-[#03261a] text-white"id="contact">
+      {/* ATMOSPHERIC GLOWS */}
+      <div className="absolute -top-48 -left-48 w-[520px] h-[520px] bg-[#0071bc]/35 blur-3xl rounded-full" />
+      <div className="absolute top-1/2 -right-48 w-[480px] h-[480px] bg-[#01943e]/30 blur-3xl rounded-full" />
 
-      {/* SUBTLE LIGHT ACCENTS */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-200px] left-[-200px] h-[500px] w-[500px] rounded-full bg-white/10 blur-[180px]" />
-        <div className="absolute bottom-[-200px] right-[-200px] h-[500px] w-[500px] rounded-full bg-white/10 blur-[180px]" />
-      </div>
+      <div className="relative container mx-auto px-6 lg:max-w-screen-xl">
+        <div className="grid gap-20 lg:grid-cols-2 items-center">
+          {/* LEFT — MESSAGE */}
+          <div className="max-w-xl">
+            <p className="uppercase tracking-[0.35em] text-xs text-[#6fd6a8] mb-6">
+              Book an Appointment
+            </p>
 
-      <div className="relative z-10 py-32">
-        <div className="container mx-auto px-6 lg:max-w-screen-xl">
-          {/* HEADER */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl mb-20 text-white"
-          >
-            <span className="block text-[11px] tracking-[0.4em] uppercase text-white/70 mb-4">
-              Get Started
-            </span>
-
-            <h2 className="text-4xl md:text-5xl text-white font-light leading-tight">
-              Ready to build a better
-              <span className="block font-normal">
-                workforce with Optivance?
-              </span>
+            <h2 className="text-4xl md:text-5xl font-light leading-tight bg-gradient-to-r from-white to-white/75 bg-clip-text text-transparent">
+              Take the First Step
+              <br />
+              Toward a Healthier Smile
             </h2>
-          </motion.div>
 
-          {/* ACTION CARDS */}
-          <div className="grid lg:grid-cols-2 gap-10">
-            {/* EMPLOYERS */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-10 text-white"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-11 w-11 rounded-xl bg-white/15 flex items-center justify-center">
-                  <Users />
-                </div>
-                <h3 className="text-2xl font-light">
-                  Looking to Hire?
-                </h3>
-              </div>
+            <p className="mt-10 text-white/75 text-lg leading-relaxed">
+              Whether you’re visiting us for a routine check-up or specialized
+              dental care, our team is ready to provide expert treatment in a
+              calm and comfortable environment.
+            </p>
+          </div>
 
-              <p className="text-white/80 leading-relaxed max-w-md mb-8">
-                Let us supply trained, certified, and fully managed blue-collar
-                workers — ready to deploy and compliant from day one.
-              </p>
+          {/* RIGHT — CONTACT CARD */}
+          <div className="p-10 bg-white/5 backdrop-blur border border-white/10">
+            <div className="space-y-6">
+              <InfoRow
+                icon={<MapPin />}
+                label="Clinic Location"
+                value="To be added"
+              />
+
+              <InfoRow
+                icon={<Phone />}
+                label="Phone"
+                value="To be added"
+              />
+
+              <InfoRow
+                icon={<Mail />}
+                label="Email"
+                value="To be added"
+              />
+
+              <InfoRow
+                icon={<Clock />}
+                label="Opening Hours"
+                value="Monday – Saturday"
+              />
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4">
+              <a
+                href="/appointment"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#0071bc] hover:bg-[#005fa0] transition text-sm uppercase tracking-wide"
+              >
+                <CalendarCheck size={18} />
+                Book Online
+              </a>
 
               <a
-                href="/hire"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-white text-[#5f3b86] text-sm tracking-[0.25em] uppercase transition hover:opacity-90"
+                href="tel:"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/30 hover:bg-white/10 transition text-sm uppercase tracking-wide"
               >
-                Request Workers
-                <ArrowRight size={16} />
+                Call Us Today
               </a>
-            </motion.div>
-
-            {/* WORKERS */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-10 text-white"
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="h-11 w-11 rounded-xl bg-white/15 flex items-center justify-center">
-                  <Smartphone />
-                </div>
-                <h3 className="text-2xl font-light">
-                  Looking for Work?
-                </h3>
-              </div>
-
-              <p className="text-white/80 leading-relaxed max-w-md mb-8">
-                Start your journey with training, certification, and structured
-                job placement — all through WhatsApp.
-              </p>
-
-              <a
-                href="https://wa.me/XXXXXXXXXX"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-white/40 text-white text-sm tracking-[0.25em] uppercase transition hover:bg-white hover:text-[#5f3b86]"
-              >
-                Join on WhatsApp
-                <ArrowRight size={16} />
-              </a>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+/* INFO ROW */
+function InfoRow({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+}) {
+  return (
+    <div className="flex items-start gap-4">
+      <div className="text-[#6fd6a8] mt-1">{icon}</div>
+
+      <div>
+        <p className="text-sm text-white/60">
+          {label}
+        </p>
+        <p className="text-white font-medium">
+          {value}
+        </p>
+      </div>
+    </div>
   );
 }

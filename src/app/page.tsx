@@ -10,59 +10,61 @@ import History from "./components/home/history";
 import Calculator from "./components/home/calculator";
 import Info from "./components/home/info";
 
+
+
 // Global components
-import AudioWelcome from "./components/AudioWelcome";
+
 
 /* -------------------------------------
-   METADATA — OPTIVANCE HR AFRICA
+   METADATA — EUROPE DENTAL CLINIC
 ------------------------------------- */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://optivancehr.africa"),
+  metadataBase: new URL("https://europedentalclinic.com"),
 
   title: {
-    default: "Optivance HR Africa",
-    template: "%s | Optivance HR Africa",
+    default: "Europe Dental Clinic",
+    template: "%s | Europe Dental Clinic",
   },
 
   description:
-    "Optivance HR Africa is an AI-powered workforce platform helping businesses hire, train, certify, and manage blue-collar workers — all through WhatsApp.",
+    "Europe Dental Clinic is a premium dental clinic in Nigeria delivering world-class oral healthcare using European standards, advanced technology, and compassionate specialists. A subsidiary of Equity Health Group Nigeria.",
 
   keywords: [
-    "Optivance HR Africa",
-    "blue collar recruitment Africa",
-    "workforce management Africa",
-    "HR platform Africa",
-    "WhatsApp HR platform",
-    "blue collar jobs Africa",
-    "AI workforce platform",
-    "staff recruitment and payroll",
-    "worker training and certification",
-    "HR compliance Africa",
+    "Europe Dental Clinic",
+    "dental clinic Nigeria",
+    "dentist in Nigeria",
+    "cosmetic dentistry Nigeria",
+    "dental implants Nigeria",
+    "orthodontics Nigeria",
+    "pediatric dentistry Nigeria",
+    "European standard dental care",
+    "Equity Health Group Nigeria",
+    "world class dental clinic",
   ],
 
   openGraph: {
-    title: "Optivance HR Africa",
+    title: "Europe Dental Clinic",
     description:
-      "Hire, train, certify, and manage trusted blue-collar workers — powered by AI and delivered through WhatsApp.",
-    url: "https://optivancehr.africa",
-    siteName: "Optivance HR Africa",
+      "World-class dental care delivered with European standards, advanced technology, and trusted Nigerian expertise.",
+    url: "https://europedentalclinic.com",
+    siteName: "Europe Dental Clinic",
     type: "website",
     images: [
       {
-        url: "https://optivancehr.africa/og/og-cover.jpg",
+        url: "https://europedentalclinic.com/og/og-cover.jpg",
         width: 1200,
         height: 630,
-        alt: "Optivance HR Africa — AI-Powered Workforce Platform",
+        alt: "Europe Dental Clinic — World-Class Dental Care",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Optivance HR Africa",
+    title: "Europe Dental Clinic",
     description:
-      "The AI-powered workforce platform for hiring and managing blue-collar workers across Africa.",
-    images: ["https://optivancehr.africa/og/og-cover.jpg"],
+      "Premium dental care using European standards and advanced technology. Trusted. Safe. Patient-focused.",
+    images: ["https://europedentalclinic.com/og/og-cover.jpg"],
   },
 
   robots: {
@@ -71,7 +73,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://optivancehr.africa",
+    canonical: "https://europedentalclinic.com",
   },
 };
 
@@ -82,7 +84,7 @@ export default function Home() {
   return (
     <main>
       {/* Audio welcome — brief, professional, plays once per visit */}
-      <AudioWelcome />
+      
 
       {/* Core hero & positioning */}
       <Hero />
@@ -101,6 +103,7 @@ export default function Home() {
       <History />
       <Calculator />
       <Info />
+      
     </main>
   );
 }

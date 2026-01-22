@@ -1,110 +1,104 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
-  GraduationCap,
-  ClipboardCheck,
-  ShieldCheck,
-  Award,
-  Wallet,
-  FileCheck,
+  Users,
+  CalendarCheck,
+  Clock,
+  FileText,
   HeartPulse,
-  Building2,
+  ShieldPlus,
 } from "lucide-react";
 
-export default function TrainingAndPayroll() {
+export default function TeamAndExperienceSection() {
   return (
-    <section className="relative bg-white overflow-hidden">
-      <div className="relative z-10 py-32">
-        <div className="container mx-auto px-6 lg:max-w-screen-xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
-            {/* ================= TRAINING & CERTIFICATION ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl border border-black/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.06)]"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-[#5f3b86] mb-4">
-                Training & Certification
-              </span>
+    <section className="relative bg-white py-32"id="team">
+      <div className="container mx-auto px-6 lg:max-w-screen-xl">
+        {/* OUR TEAM */}
+        <div className="grid gap-16 lg:grid-cols-2 items-center mb-32">
+          {/* TEXT */}
+          <div className="max-w-xl">
+            <p className="uppercase tracking-[0.35em] text-xs text-[#01943e] mb-6">
+              Our Team
+            </p>
 
-              <h3 className="text-3xl font-light text-black leading-tight">
-                Skills that employers trust.
-                <span className="block font-normal text-[#5f3b86]">
-                  Credentials workers carry.
-                </span>
-              </h3>
+            <h2 className="text-4xl md:text-5xl font-light leading-tight bg-gradient-to-r from-[#0071bc] to-[#01943e] bg-clip-text text-transparent">
+              Experts Behind
+              <br />
+              Every Confident Smile
+            </h2>
 
-              <p className="mt-6 text-black/70 leading-relaxed max-w-md">
-                Optivance delivers AI-optimized training programs tailored to
-                each role, ensuring workers are prepared, tested, and job-ready.
-              </p>
+            <p className="mt-10 text-black/70 text-lg leading-relaxed">
+              Our team consists of experienced dentists, dental surgeons,
+              hygienists, and support staff trained both locally and
+              internationally. Every patient receives personalized care,
+              thoughtfully tailored to their unique dental needs.
+            </p>
 
-              <ul className="mt-8 space-y-4">
-                <Item icon={<GraduationCap />} text="Hospitality & customer service" />
-                <Item icon={<ShieldCheck />} text="Hygiene, safety, and compliance" />
-                <Item icon={<ClipboardCheck />} text="Trade-specific technical skills" />
-                <Item icon={<Award />} text="Workplace ethics and conduct" />
-              </ul>
+            <p className="mt-8 text-black font-medium">
+              Excellence begins with expertise.
+            </p>
+          </div>
 
-              <div className="mt-8 border-t border-black/10 pt-6 space-y-3">
-                <p className="text-black/70 text-sm">
-                  Workers earn verifiable digital certificates that:
-                </p>
-                <ul className="space-y-2 text-sm text-black/60">
-                  <li>• Prove real competence</li>
-                  <li>• Increase employability</li>
-                  <li>• Travel with the worker across jobs</li>
-                </ul>
-              </div>
-            </motion.div>
+          {/* VISUAL / PLACEHOLDER */}
+          <div className="relative h-[420px] bg-gradient-to-br from-[#0071bc]/10 via-transparent to-[#01943e]/10 border border-black/10 flex items-center justify-center">
+            <Users className="text-[#0071bc]/60" size={72} />
+          </div>
+        </div>
 
-            {/* ================= PAYROLL, TAX & INSURANCE ================= */}
-            <motion.div
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="rounded-3xl border border-black/5 p-10 shadow-[0_30px_90px_rgba(0,0,0,0.06)]"
-            >
-              <span className="block text-[11px] tracking-[0.4em] uppercase text-[#61abbb] mb-4">
-                Payroll, Tax & Insurance
-              </span>
+        {/* PATIENT EXPERIENCE */}
+        <div>
+          <div className="max-w-3xl mb-20">
+            <p className="uppercase tracking-[0.35em] text-xs text-[#01943e] mb-6">
+              Patient Experience
+            </p>
 
-              <h3 className="text-3xl font-light text-black leading-tight">
-                We don’t stop at hiring.
-                <span className="block font-normal text-[#61abbb]">
-                  We manage employment end to end.
-                </span>
-              </h3>
+            <h3 className="text-3xl md:text-4xl font-light leading-tight text-black">
+              A Seamless, Thoughtful
+              <br />
+              Care Journey
+            </h3>
 
-              <p className="mt-6 text-black/70 leading-relaxed max-w-md">
-                Optivance manages the full employment lifecycle — removing
-                administrative burden from businesses and protecting workers.
-              </p>
+            <p className="mt-8 text-black/70 text-lg max-w-2xl">
+              From your first consultation to post-treatment care, we focus on
+              clarity, comfort, and confidence—ensuring every step of your
+              journey feels effortless and reassuring.
+            </p>
+          </div>
 
-              <ul className="mt-8 space-y-4">
-                <Item icon={<Wallet />} text="Salary payments" />
-                <Item icon={<FileCheck />} text="PAYE and statutory tax deductions" />
-                <Item icon={<Building2 />} text="Pension and compliance support" />
-                <Item icon={<HeartPulse />} text="Health and accident insurance" />
-              </ul>
+          {/* EXPERIENCE STEPS */}
+          <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            <ExperienceItem
+              icon={<CalendarCheck />}
+              title="Easy Appointment Booking"
+              desc="Simple scheduling designed around your availability."
+              color="text-[#0071bc]"
+            />
 
-              <div className="mt-10 grid grid-cols-2 gap-6">
-                <div>
-                  <p className="text-sm font-medium text-black">
-                    Businesses stay compliant.
-                  </p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-black">
-                    Workers stay protected.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
+            <ExperienceItem
+              icon={<Clock />}
+              title="Minimal Waiting Times"
+              desc="Efficient processes that respect your time."
+              color="text-[#01943e]"
+            />
+
+            <ExperienceItem
+              icon={<FileText />}
+              title="Clear Treatment Plans"
+              desc="Transparent explanations and well-defined care pathways."
+              color="text-[#0071bc]"
+            />
+
+            <ExperienceItem
+              icon={<HeartPulse />}
+              title="Pain-Managed Procedures"
+              desc="Advanced techniques focused on comfort and ease."
+              color="text-[#01943e]"
+            />
+
+            <ExperienceItem
+              icon={<ShieldPlus />}
+              title="After-Care Support"
+              desc="Ongoing guidance to ensure optimal recovery and results."
+              color="text-black"
+            />
           </div>
         </div>
       </div>
@@ -112,22 +106,29 @@ export default function TrainingAndPayroll() {
   );
 }
 
-/* -------------------------------------
-   ITEM
-------------------------------------- */
-function Item({
+/* EXPERIENCE ITEM */
+function ExperienceItem({
   icon,
-  text,
+  title,
+  desc,
+  color,
 }: {
   icon: React.ReactNode;
-  text: string;
+  title: string;
+  desc: string;
+  color: string;
 }) {
   return (
-    <li className="flex items-start gap-4">
-      <div className="h-10 w-10 rounded-xl bg-black/5 text-black flex items-center justify-center">
-        {icon}
-      </div>
-      <span className="text-black/80 text-sm leading-relaxed">{text}</span>
-    </li>
+    <div className="p-8 border border-black/10 hover:border-[#0071bc]/30 transition bg-white">
+      <div className={`mb-6 ${color}`}>{icon}</div>
+
+      <h4 className="text-lg font-medium text-black mb-3">
+        {title}
+      </h4>
+
+      <p className="text-black/70 leading-relaxed">
+        {desc}
+      </p>
+    </div>
   );
 }

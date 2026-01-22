@@ -1,125 +1,165 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
-  Bot,
-  Users,
-  BookOpen,
-  ClipboardCheck,
-  BadgeCheck,
-  Wallet,
-  FileCheck,
-  Shield,
-  BarChart3,
+  Stethoscope,
+  Sparkles,
+  Wrench,
+  Smile,
+  Layers,
+  Baby,
+  Scissors,
 } from "lucide-react";
 
-export default function AIPlatform() {
+export default function ServicesSection() {
   return (
-    <section className="relative overflow-hidden">
-      {/* PURPLE GRADIENT BACKGROUND */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(135deg, #2a123f 0%, #5f3b86 45%, #7b4db3 100%)",
-        }}
-      />
+    <section className="relative py-32 overflow-hidden bg-gradient-to-br from-[#041e2f] via-[#052f45] to-[#03261a]"id="services">
+      {/* SOFT GLOW EFFECTS */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#0071bc]/30 blur-3xl rounded-full" />
+      <div className="absolute top-1/2 -right-40 w-[450px] h-[450px] bg-[#01943e]/25 blur-3xl rounded-full" />
 
-      {/* SOFT AI FLOW LINES */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <div className="absolute top-0 left-1/4 h-full w-[1px] bg-gradient-to-b from-transparent via-white to-transparent" />
-        <div className="absolute top-0 left-2/4 h-full w-[1px] bg-gradient-to-b from-transparent via-white to-transparent" />
-        <div className="absolute top-0 left-3/4 h-full w-[1px] bg-gradient-to-b from-transparent via-white to-transparent" />
-      </div>
+      <div className="relative container mx-auto px-6 lg:max-w-screen-xl text-white">
+        {/* HEADER */}
+        <div className="max-w-3xl mb-24">
+          <p className="uppercase tracking-[0.35em] text-xs text-[#6fd6a8] mb-6">
+            Our Services
+          </p>
 
-      <div className="relative z-10 py-32">
-        <div className="container mx-auto px-6 lg:max-w-screen-xl">
-          <div className="grid lg:grid-cols-12 gap-20 items-start">
-            {/* LEFT — EXPLANATION */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5 space-y-8 text-white"
-            >
-              <div className="flex items-center gap-3 text-white/80">
-                <Bot size={18} />
-                <span className="text-[11px] tracking-[0.4em] uppercase">
-                  AI-Powered Platform
-                </span>
-              </div>
+          <h2 className="text-4xl md:text-5xl font-light leading-tight bg-gradient-to-r from-white to-white/70 bg-clip-text text-transparent">
+            Comprehensive Dental Care
+            <br />
+            For Every Stage of Life
+          </h2>
 
-              <h2 className="text-4xl md:text-5xl font-light leading-tight text-white">
-                Our AI-Powered
-                <span className="block font-normal">
-                  WhatsApp Workforce Platform
-                </span>
-              </h2>
+          <p className="mt-8 text-white/70 text-lg max-w-2xl">
+            We offer a full spectrum of dental services for children and adults,
+            combining advanced technology, skilled specialists, and
+            patient-centered care.
+          </p>
+        </div>
 
-              <p className="text-white/80 leading-relaxed text-lg max-w-md">
-                Optivance is building an AI-first workforce platform on WhatsApp,
-                designed for accessibility, scale, and speed.
-              </p>
+        {/* SERVICES GRID */}
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+          {/* GENERAL */}
+          <ServiceCard
+            icon={<Stethoscope />}
+            title="General Dentistry"
+            color="from-[#0071bc] to-[#4fb3ff]"
+            items={[
+              "Dental check-ups & consultations",
+              "Professional teeth cleaning",
+              "Fillings & cavity treatment",
+              "Gum disease management",
+            ]}
+          />
 
-              <p className="text-white/70 leading-relaxed max-w-md">
-                Workers and employers interact with Optivance through an AI agent
-                on WhatsApp — no apps, no complexity.
-              </p>
+          {/* COSMETIC */}
+          <ServiceCard
+            icon={<Sparkles />}
+            title="Cosmetic Dentistry"
+            color="from-[#6ee7b7] to-[#34d399]"
+            items={[
+              "Teeth whitening",
+              "Smile design & veneers",
+              "Dental bonding",
+              "Tooth reshaping",
+            ]}
+          />
 
-              <p className="pt-6 text-white font-medium text-lg">
-                If you can use WhatsApp, you can use Optivance.
-              </p>
-            </motion.div>
+          {/* RESTORATIVE */}
+          <ServiceCard
+            icon={<Wrench />}
+            title="Restorative Dentistry"
+            color="from-[#93c5fd] to-[#60a5fa]"
+            items={[
+              "Dental crowns & bridges",
+              "Dentures (partial & full)",
+              "Root canal treatment",
+              "Tooth reconstruction",
+            ]}
+          />
 
-            {/* RIGHT — AI CAPABILITIES */}
-            <motion.div
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-7"
-            >
-              <div className="rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 p-10">
-                <h3 className="text-sm tracking-[0.3em] uppercase text-white/80 mb-8">
-                  What the AI Agent Does
-                </h3>
+          {/* ORTHODONTICS */}
+          <ServiceCard
+            icon={<Smile />}
+            title="Orthodontics"
+            color="from-[#a7f3d0] to-[#34d399]"
+            items={[
+              "Metal, ceramic & clear braces",
+              "Invisalign & clear aligners",
+              "Bite correction",
+            ]}
+          />
 
-                <div className="grid sm:grid-cols-2 gap-6">
-                  <Capability icon={<Users />} text="Screens and recruits workers" />
-                  <Capability icon={<BookOpen />} text="Delivers training and learning modules" />
-                  <Capability icon={<ClipboardCheck />} text="Conducts skills tests and assessments" />
-                  <Capability icon={<BadgeCheck />} text="Issues digital certifications" />
-                  <Capability icon={<Wallet />} text="Manages payroll and pays salaries" />
-                  <Capability icon={<FileCheck />} text="Handles tax deductions and compliance" />
-                  <Capability icon={<Shield />} text="Provides insurance onboarding and coverage" />
-                  <Capability icon={<BarChart3 />} text="Tracks deployment, attendance, and performance" />
-                </div>
-              </div>
-            </motion.div>
-          </div>
+          {/* IMPLANTS */}
+          <ServiceCard
+            icon={<Layers />}
+            title="Implant Dentistry"
+            color="from-[#60a5fa] to-[#2563eb]"
+            items={[
+              "Dental implants",
+              "Implant-supported crowns & bridges",
+              "Full mouth rehabilitation",
+            ]}
+          />
+
+          {/* PEDIATRIC */}
+          <ServiceCard
+            icon={<Baby />}
+            title="Pediatric Dentistry"
+            color="from-[#f9a8d4] to-[#f472b6]"
+            items={[
+              "Child-friendly dental care",
+              "Preventive treatments",
+              "Fluoride & sealants",
+              "Early orthodontic assessment",
+            ]}
+          />
+
+          {/* ORAL SURGERY */}
+          <ServiceCard
+            icon={<Scissors />}
+            title="Oral & Maxillofacial Care"
+            color="from-[#fde68a] to-[#f59e0b]"
+            items={[
+              "Simple & surgical extractions",
+              "Wisdom tooth removal",
+              "Oral surgery procedures",
+            ]}
+          />
         </div>
       </div>
     </section>
   );
 }
 
-/* -------------------------------------
-   CAPABILITY ITEM
-------------------------------------- */
-function Capability({
+/* SERVICE CARD COMPONENT */
+function ServiceCard({
   icon,
-  text,
+  title,
+  items,
+  color,
 }: {
   icon: React.ReactNode;
-  text: string;
+  title: string;
+  items: string[];
+  color: string;
 }) {
   return (
-    <div className="flex items-start gap-4">
-      <div className="h-10 w-10 rounded-xl bg-white/15 text-white flex items-center justify-center">
+    <div className="relative p-8 bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/25 transition">
+      <div
+        className={`inline-flex p-3 rounded-lg bg-gradient-to-br ${color} text-black mb-6`}
+      >
         {icon}
       </div>
-      <span className="text-white/85 text-sm leading-relaxed">{text}</span>
+
+      <h3 className="text-xl font-medium mb-4">{title}</h3>
+
+      <ul className="space-y-2 text-white/75 text-sm">
+        {items.map((item, i) => (
+          <li key={i} className="flex items-start gap-2">
+            <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/60" />
+            {item}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
