@@ -39,14 +39,16 @@ export default function TeamAndExperienceSection() {
           </div>
 
           {/* VISUAL / PLACEHOLDER */}
-          <div className="relative h-[420px] bg-gradient-to-br from-[#0071bc]/10 via-transparent to-[#01943e]/10 border border-black/10 flex items-center justify-center overflow-hidden">
-  <Image
-    src="/images/hero/team.png"
-    alt="Europe Dental Clinic Team"
-    fill
-    className="object-contain"
-    priority
-  />
+          <div className="relative h-[320px] sm:h-[420px] bg-gradient-to-br from-[#0071bc]/10 via-transparent to-[#01943e]/10 border border-black/10 overflow-hidden">
+  <div className="absolute inset-x-0 bottom-0 h-full">
+    <Image
+      src="/images/hero/team.png"
+      alt="Europe Dental Clinic Team"
+      fill
+      className="object-contain object-bottom"
+      priority
+    />
+  </div>
 </div>
         </div>
 
