@@ -6,6 +6,7 @@ import {
   HeartPulse,
   ShieldPlus,
 } from "lucide-react";
+import Image from "next/image";
 
 export default function TeamAndExperienceSection() {
   return (
@@ -38,9 +39,15 @@ export default function TeamAndExperienceSection() {
           </div>
 
           {/* VISUAL / PLACEHOLDER */}
-          <div className="relative h-[420px] bg-gradient-to-br from-[#0071bc]/10 via-transparent to-[#01943e]/10 border border-black/10 flex items-center justify-center">
-            <Users className="text-[#0071bc]/60" size={72} />
-          </div>
+          <div className="relative h-[420px] bg-gradient-to-br from-[#0071bc]/10 via-transparent to-[#01943e]/10 border border-black/10 flex items-center justify-center overflow-hidden">
+  <Image
+    src="/images/hero/team.png"
+    alt="Europe Dental Clinic Team"
+    fill
+    className="object-contain"
+    priority
+  />
+</div>
         </div>
 
         {/* PATIENT EXPERIENCE */}

@@ -50,13 +50,13 @@ export default function AppointmentSection() {
                 <InfoRow
                   icon={<MapPin />}
                   label="Clinic Location"
-                  value="To be added"
+                  value="182 b moshood olugbani street off ligali ayorinde ,Victoria Island"
                 />
 
                 <InfoRow
                   icon={<Phone />}
                   label="Phone"
-                  value="To be added"
+                  value="08133337555, 09083333933"
                 />
 
                 <InfoRow

@@ -104,12 +104,12 @@ export default function Footer() {
               <div className="space-y-4 text-sm text-white/70">
                 <div className="flex items-start gap-3">
                   <MapPin size={16} className="mt-1 text-[#6fd6a8]" />
-                  <span>Clinic Location (To be added)</span>
+                  <span>Clinic Location (182 b moshood olugbani street off ligali ayorinde ,Victoria Island)</span>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Phone size={16} className="mt-1 text-[#6fd6a8]" />
-                  <span>Phone (To be added)</span>
+                  <span>Phone (08133337555, 09083333933)</span>
                 </div>
 
                 <div className="flex items-start gap-3">
