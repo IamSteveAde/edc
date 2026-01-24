@@ -46,7 +46,7 @@ export default function AppointmentModal({
       setTimeout(() => {
         setSuccess(false);
         onClose();
-      }, 2000);
+      }, 1800);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -67,13 +67,13 @@ export default function AppointmentModal({
 
       {/* MODAL */}
       <motion.div
-        className="fixed inset-0 z-[101] flex items-center justify-center px-4 py-10 overflow-y-auto"
-        initial={{ opacity: 0, y: 40 }}
+        className="fixed inset-0 z-[101] flex items-start sm:items-center justify-center px-4 py-8 overflow-y-auto"
+        initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 40 }}
+        exit={{ opacity: 0, y: 32 }}
       >
         <div
-          className="relative w-full max-w-lg bg-white p-6 sm:p-8 shadow-2xl"
+          className="relative w-full max-w-lg bg-white rounded-lg p-6 sm:p-8 shadow-2xl"
           onClick={(e) => e.stopPropagation()}
         >
           {/* CLOSE */}
@@ -86,7 +86,7 @@ export default function AppointmentModal({
           </button>
 
           {/* HEADER */}
-          <p className="text-[#01943e] uppercase tracking-[0.35em] text-xs mb-3">
+          <p className="text-[#01943e] uppercase tracking-[0.32em] text-xs mb-2">
             Book Appointment
           </p>
 
@@ -105,64 +105,50 @@ export default function AppointmentModal({
               </p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* NAME */}
               <Field label="Full Name">
-                <input
+                <Input
                   type="text"
-                  required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="field-input"
                 />
               </Field>
 
+              {/* EMAIL */}
               <Field label="Email Address">
-                <input
+                <Input
                   type="email"
-                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="field-input"
                 />
               </Field>
 
+              {/* PHONE */}
               <Field label="Phone Number">
-                <input
+                <Input
                   type="tel"
-                  required
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="field-input"
                 />
               </Field>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <Field label="Preferred Date">
-                  <input
-                    type="date"
-                    required
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    className="field-input h-[52px]"
-                  />
-                </Field>
+              {/* DATE */}
+              <Field label="Preferred Date">
+                <Input
+                  type="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </Field>
 
-                <Field label="Service">
-                  <select
-                    required
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    className="field-input h-[52px]"
-                  >
-                    <option value="">Select</option>
-                    <option>General Dentistry</option>
-                    <option>Cosmetic Dentistry</option>
-                    <option>Orthodontics</option>
-                    <option>Implant Dentistry</option>
-                    <option>Pediatric Dentistry</option>
-                  </select>
-                </Field>
-              </div>
+              {/* SERVICE */}
+              <Field label="Service">
+                <Select
+                  value={service}
+                  onChange={(e) => setService(e.target.value)}
+                />
+              </Field>
 
               {error && (
                 <p className="text-sm text-red-600">
@@ -186,7 +172,7 @@ export default function AppointmentModal({
 }
 
 /* =========================
-   FIELD WRAPPER (1px BORDER)
+   FIELD WRAPPER
 ========================= */
 function Field({
   label,
@@ -196,14 +182,63 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-1.5">
       <label className="text-sm text-black/60">
         {label}
       </label>
-
-      <div className="border border-black/20 rounded-sm px-3 py-1 focus-within:border-[#0071bc] transition">
+      <div className="bg-white rounded-md shadow-[0_6px_18px_rgba(0,0,0,0.08)] focus-within:shadow-[0_8px_24px_rgba(0,113,188,0.25)] transition">
         {children}
       </div>
     </div>
+  );
+}
+
+/* =========================
+   INPUT (MOBILE SAFE)
+========================= */
+function Input(props: React.InputHTMLAttributes<HTMLInputElement>) {
+  return (
+    <input
+      {...props}
+      required
+      className="
+        w-full
+        h-[52px]
+        px-4
+        bg-transparent
+        text-base
+        text-black
+        focus:outline-none
+      "
+    />
+  );
+}
+
+/* =========================
+   SELECT (MOBILE SAFE)
+========================= */
+function Select(props: React.SelectHTMLAttributes<HTMLSelectElement>) {
+  return (
+    <select
+      {...props}
+      required
+      className="
+        w-full
+        h-[52px]
+        px-4
+        bg-transparent
+        text-base
+        text-black
+        focus:outline-none
+        appearance-none
+      "
+    >
+      <option value="">Select a service</option>
+      <option>General Dentistry</option>
+      <option>Cosmetic Dentistry</option>
+      <option>Orthodontics</option>
+      <option>Implant Dentistry</option>
+      <option>Pediatric Dentistry</option>
+    </select>
   );
 }
